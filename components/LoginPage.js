@@ -20,7 +20,7 @@ function LoginPage({ navigation }) {
       // Check if the user is signed in
       if (auth.currentUser) {
         console.log('User signed in:', auth.currentUser.email);
-        navigation.navigate("Home"); // Navigate to the home screen
+        navigation.navigate("TabBar"); // Navigate to the home screen
       } else {
         console.log('User is not signed in.');
       }
@@ -29,7 +29,7 @@ function LoginPage({ navigation }) {
       console.log("In catch bloack of sigin")
       try{
         await createUserWithEmailAndPassword(auth,loginData.email,loginData.pass)
-        navigation.navigate("Home")
+        navigation.navigate("TabBar")
         const dataDoc=doc(db,"Users",auth?.currentUser?.email)
         await setDoc(dataDoc,{name:auth?.currentUser?.email.slice(0,10),qrcode:"",points:2500,days:50,address:"102 SmartBin Nagar"})
       console.error('Sign-in error:', error.message);
@@ -55,7 +55,7 @@ function LoginPage({ navigation }) {
         <Text style={{ color: '#ffff', fontSize: 24, marginBottom: 20, fontWeight:"700", }}>User Login </Text>
         <TextInput name="email" onChangeText={(text) => handleChange('email', text)} value={loginData.email} style={styles.inputText} placeholder={`Enter UserName or email`} />
         <TextInput name="pass" onChangeText={(text) => handleChange('pass', text)} value={loginData.pass} secureTextEntry={true} style={styles.inputText} placeholder="Enter the Password" />
-        <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate("Home")}>
+        <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate("TabBar")}>
           <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black'}}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>navigation.navigate("Forgot")}>

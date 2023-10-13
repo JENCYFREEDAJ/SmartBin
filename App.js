@@ -16,6 +16,7 @@ import ForgotPassword from './components/ForgotPassword';
 import UserDetails from './components/UserDetails';
 import Cart from './components/Cart';
 import LogHistory from './components/LogHistory';
+import TabBar from './components/TabBar';
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -32,7 +33,7 @@ const App = () => {
         <Stack.Screen name="RedeemStore"component={RedeemStore} options={{ headerShown: false }} />
         <Stack.Screen name="Cart"component={Cart} options={{ headerShown: false }} />
         <Stack.Screen name="LogHistory"component={LogHistory} options={{ headerShown: false }} />
-
+        <Stack.Screen name="TabBar" component={TabBar} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

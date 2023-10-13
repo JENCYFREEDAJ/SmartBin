@@ -8,6 +8,8 @@ import UserDetails from './UserDetails';
 const HEIGHT = Dimensions.get('window').height;
 const WIDTH = Dimensions.get('window').width;
 
+
+
 function HomePage({ navigation }) {
   const [userDetails, setUserDetails] = useState({
     name: 'gokulashik',
@@ -77,7 +79,7 @@ function HomePage({ navigation }) {
         </TouchableOpacity>
 
         {/* Fifth card */}
-        <TouchableOpacity onPress={() =>  navigation.navigate("LogHistory")}>
+        <TouchableOpacity onPress={() => navigation.navigate("LogHistory")}>
           <View style={{ ...styles.card, width: 230, height: 129 }}>
             <Image style={{ width: 75, height: 75 }} source={require('../assets/clock-history.png')} />
             <Text style={{ fontSize: 24 }}>Log{"\n"}History</Text>
@@ -97,11 +99,11 @@ function HomePage({ navigation }) {
       {/* User Details */}
       {showUser && (
         <View style={styles.userDetailsContainer}>
-          <UserDetails setShowUser={setShowUser}/>
+          <UserDetails setShowUser={setShowUser} />
         </View>
       )}
 
-      <SafeAreaView style={styles.navBar}>
+      {/* <SafeAreaView style={styles.navBar}>
         <TouchableOpacity onPress={() => setShowUser(old => !old)}>
           <Image style={{ width: 41, height: 41 }} source={require('../assets/person-fill.png')} />
         </TouchableOpacity>
@@ -111,7 +113,8 @@ function HomePage({ navigation }) {
         </TouchableOpacity>
         <Image style={{ width: 41, height: 41 }} source={require('../assets/customer-service-icon.png')} />
         <Image style={{ width: 41, height: 41 }} source={require('../assets/chat-dots.png')} />
-      </SafeAreaView>
+      </SafeAreaView> */}
+
     </View>
   );
 }
@@ -123,9 +126,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#96C291',
   },
   headBar: {
-    flex: 1 / 8,
     padding: 5,
-    marginTop: 20,
+    marginTop: 25,
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
