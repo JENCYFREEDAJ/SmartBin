@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet, KeyboardAvoidingView, Platform, ScrollView, Dimensions } from 'react-native';
 import { auth,db } from '../config/firebase';
 import { signInWithEmailAndPassword,createUserWithEmailAndPassword } from 'firebase/auth';
-import {doc,setDoc} from 'firebase/firestore'
+import {doc,setDoc} from 'firebase/firestore';
+
+const HEIGHT = Dimensions.get('window').height;
+const WIDTH = Dimensions.get('window').width;
+
 function LoginPage({ navigation }) {
   const [loginData, setLoginData] = useState({
     email: '',
@@ -42,73 +46,57 @@ function LoginPage({ navigation }) {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'} // This adjusts the view when the keyboard appears
-    >
-      <ScrollView
-        contentContainerStyle={styles.scrollViewContent}
-        keyboardShouldPersistTaps="handled"
-      >
-        <View style={styles.title}>
-          <Text style={{ color: 'white', fontSize: 32 }}>Smart Bin</Text>
-          <Image source={require('../assets/TrashLogo.png')} style={{ width: 32, height: 32 }} />
-        </View>
-        <View style={styles.info}>
-          <Text style={{ color: 'white', fontSize: 24 }}>User Login </Text>
-          <View style={styles.login}>
-            <TextInput name="email" onChangeText={(text) => handleChange('email', text)} value={loginData.email} style={styles.text} placeholder={`Enter UserName or email`} />
-            <TextInput name="pass" onChangeText={(text) => handleChange('pass', text)} value={loginData.pass} secureTextEntry={true} style={styles.text} placeholder="Enter the Password" />
-            <TouchableOpacity style={styles.btn}>
-              <Text onPress={()=>navigation.navigate("Home")}>Login</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <Text onPress={()=>navigation.navigate("Forgot")} style={{ textAlign: 'center', margin: 8 }}>Forgot password?</Text>
-      </ScrollView>
-    </KeyboardAvoidingView>
+    <View style={styles.container}>
+      <View style={styles.title}>
+        <Text style={{ color: '#ffff', fontSize: 32, fontWeight:"bold" }}>Smart Bin</Text>
+        <Image source={require('../assets/TrashLogo.png')} style={{ width: 32, height: 32, marginLeft: 5 }} />
+      </View>
+      <View style={styles.info}>
+        <Text style={{ color: '#ffff', fontSize: 24, marginBottom: 20, fontWeight:"700", }}>User Login </Text>
+        <TextInput name="email" onChangeText={(text) => handleChange('email', text)} value={loginData.email} style={styles.inputText} placeholder={`Enter UserName or email`} />
+        <TextInput name="pass" onChangeText={(text) => handleChange('pass', text)} value={loginData.pass} secureTextEntry={true} style={styles.inputText} placeholder="Enter the Password" />
+        <TouchableOpacity style={styles.btn} onPress={()=>navigation.navigate("Home")}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'black'}}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.navigate("Forgot")}>
+          <Text style={{ textAlign: 'center', marginTop: 20, }}>Forgot password?</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: WIDTH,
+    height: HEIGHT,
     backgroundColor: '#96C291',
   },
-  info: {
-    flex: 1 / 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 150,
-  },
   title: {
-    flex: 0,
     flexDirection: 'row',
     alignItems: 'center',
-    margin: 15,
-    padding: 9,
+    height: '20%',
+    width: WIDTH,
+    marginLeft: 20,
   },
-  login: {
-    flex: 1,
+  info: {
+    width: WIDTH,
+    height: '60%',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 5,
-    margin: 2,
   },
-  text: {
-    padding: 6,
-    margin: 5,
-    backgroundColor: 'white',
-    borderRadius: 12,
-    width: 286,
-    height: 51,
+  inputText: {
+    backgroundColor: '#ffff',
+    borderRadius: 15,
+    width: 280,
+    height: 50,
     textAlign: 'center',
+    marginBottom: 20,
   },
   btn: {
-    padding: 5,
-    backgroundColor: 'white',
-    width: 106,
-    height: 51,
+    backgroundColor: '#ffff',
+    width: 150,
+    height: 50,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 25,

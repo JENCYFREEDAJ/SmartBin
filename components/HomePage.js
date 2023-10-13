@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { auth } from '../config/firebase';
 import { db } from '../config/firebase';
 import { getDoc, doc } from 'firebase/firestore';
 import UserDetails from './UserDetails';
+
+const HEIGHT = Dimensions.get('window').height;
+const WIDTH = Dimensions.get('window').width;
 
 function HomePage({ navigation }) {
   const [userDetails, setUserDetails] = useState({
@@ -115,7 +118,8 @@ function HomePage({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: WIDTH,
+    height: HEIGHT,
     backgroundColor: '#96C291',
   },
   headBar: {

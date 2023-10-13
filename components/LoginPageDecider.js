@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity, Image, Animated } from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableOpacity, Image, Animated, Dimensions } from 'react-native';
+
+const HEIGHT = Dimensions.get('window').height;
+const WIDTH = Dimensions.get('window').width;
 
 function LoginPageDecider({ navigation }) {
   const [fadeAnim, setFadeAnim] = useState(new Animated.Value(0));
@@ -29,14 +32,14 @@ function LoginPageDecider({ navigation }) {
   return (
     <Animated.View style={{ ...styles.container, opacity: fadeAnim }}>
       <Animated.View style={{ ...styles.titleContent, transform: [{ translateY: positionAnim }] }}>
-        <Text style={{ color: 'white', fontSize: 25 }}>Smart Bin</Text>
-        <Image source={require('../assets/TrashLogo.png')} style={{ width: 32, height: 32 }} />
+        <Text style={{ color: '#ffff', fontSize: 25, fontWeight:"bold", paddingTop: 5, }}>Smart Bin</Text>
+        <Image source={require('../assets/TrashLogo.png')} style={{ width: 32, height: 32, marginLeft: 5, }} />
       </Animated.View>
-      <TouchableOpacity>
-        <Text style={styles.btn} onPress={() => navigateToLogin('admin')}>Admin Login</Text>
+      <TouchableOpacity onPress={() => navigateToLogin('admin')}>
+        <Text style={styles.btn}>Admin Login</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
-        <Text style={styles.btn} onPress={() => navigateToLogin('user')}>User Login</Text>
+      <TouchableOpacity onPress={() => navigateToLogin('user')}>
+        <Text style={styles.btn}>User Login</Text>
       </TouchableOpacity>
     </Animated.View>
   );
@@ -44,28 +47,29 @@ function LoginPageDecider({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: WIDTH,
+    height: HEIGHT,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#96C291',
   },
   btn: {
     color: 'black',
-    backgroundColor: 'white',
-    width: 286,
-    height: 51,
-    padding: 6,
+    backgroundColor: '#ffff',
+    width: 280,
+    height: 50,
     textAlign: 'center',
     textAlignVertical: 'center',
-    margin: 3,
-    borderRadius: 100 / 2,
+    fontWeight: '500',
+    borderRadius: 50,
     fontSize: 18,
+    marginBottom: 20,
   },
   titleContent: {
     flexDirection: 'row',
     alignSelf: 'flex-start',
-    paddingLeft: 40,
-    margin: 6,
+    marginLeft: 45,
+    marginBottom: 20,
   },
 });
 
