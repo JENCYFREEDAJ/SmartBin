@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Image, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, } from 'react-native';
 import { auth } from '../config/firebase';
 import { db } from '../config/firebase';
 import { getDoc, doc } from 'firebase/firestore';
@@ -108,8 +108,65 @@ function HomePage({ navigation }) {
         <Text style={styles.headerText}>Home</Text>
       </View>
       <View style={styles.mainContainer}>
-        <View>
-          <Text>Hello {userDetails.name}</Text>
+        <Text style={styles.welcomeNote}>Hello {userDetails.name}</Text>
+        <Text style={{fontSize: 15, alignSelf: 'center', marginTop: 10, fontWeight: '600'}}>Today Disposed Waste Percentage</Text>
+        <View style={styles.cardSection}>
+          <View style={styles.card}>
+            <CircularProgress 
+              radius={50}
+              value={60}
+              textColor= 'black'
+              fontSize={12}
+              valueSuffix={'%'}
+              inActiveStrokeColor={'#4D8C1C'}
+              inActiveStrokeOpacity={0.2}
+            />
+            <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Organic</Text>
+          </View>
+          <View style={styles.card}>
+            <CircularProgress 
+              radius={50}
+              value={30}
+              textColor= 'black'
+              fontSize={12}
+              valueSuffix={'%'}
+              inActiveStrokeColor={'#4D8C1C'}
+              inActiveStrokeOpacity={0.2}
+            />
+            <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Plastic</Text>
+          </View>
+          <View style={styles.card}>
+            <CircularProgress 
+              radius={50}
+              value={15}
+              textColor= 'black'
+              fontSize={12}
+              valueSuffix={'%'}
+              inActiveStrokeColor={'#4D8C1C'}
+              inActiveStrokeOpacity={0.2}
+            />
+            <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Glass</Text>
+          </View>
+          <View style={styles.card}>
+            <CircularProgress 
+              radius={50}
+              value={5}
+              textColor= 'black'
+              fontSize={12}
+              valueSuffix={'%'}
+              inActiveStrokeColor={'#4D8C1C'}
+              inActiveStrokeOpacity={0.2}
+            />
+            <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Other</Text>
+          </View>
+        </View>
+        <View style={styles.balanceCard}>
+          <View style={{width: '30%', justifyContent: 'center', alignItems: 'center'}}>
+            <Image source={require('../assets/dollar.png')} style={{width: 50, height: 50}}/>
+          </View>
+          <View style={{width: '70%', justifyContent: 'center'}}>
+            <Text style={{fontWeight: 'bold', fontSize: 18}}>Earned 400 Coins</Text>
+          </View>
         </View>
       </View>
     </View>
@@ -137,6 +194,36 @@ const styles = StyleSheet.create({
     height: '85%',
     width: WIDTH,
   },
+  welcomeNote: {
+    alignSelf: 'center',
+    fontSize: 25, 
+    fontWeight: 'bold'
+  },
+  cardSection: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  card: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowRadius: 10,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'black',
+    height: HEIGHT / 4,
+    width: WIDTH / 2.3,
+    margin: 10,
+  },
+  balanceCard: {
+    height: 70, 
+    width: WIDTH/1.1, 
+    shadowRadius: 10,
+    borderRadius: 20,
+    borderWidth: 1,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
   headBar: {
     padding: 5,
     marginTop: 25,
@@ -147,18 +234,18 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 20,
   },
-  card: {
-    backgroundColor: 'white',
-    color: 'black',
-    flexDirection: 'row',
-    margin: 5,
-    marginTop: 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 10,
-    borderRadius: 30,
-    justifyContent: 'space-between',
-  },
+  // card: {
+  //   backgroundColor: 'white',
+  //   color: 'black',
+  //   flexDirection: 'row',
+  //   margin: 5,
+  //   marginTop: 24,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  //   padding: 10,
+  //   borderRadius: 30,
+  //   justifyContent: 'space-between',
+  // },
   cardContainer: {
     flex: 1,
     flexDirection: 'row',
