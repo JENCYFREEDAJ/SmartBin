@@ -4,6 +4,7 @@ import { auth } from '../config/firebase';
 import { db } from '../config/firebase';
 import { getDoc, doc } from 'firebase/firestore';
 import UserDetails from './UserDetails';
+import CircularProgress from 'react-native-circular-progress-indicator';
 
 const HEIGHT = Dimensions.get('window').height;
 const WIDTH = Dimensions.get('window').width;
@@ -36,7 +37,7 @@ function HomePage({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={styles.headBar}>
+      {/* <SafeAreaView style={styles.headBar}>
         <Text style={{ flex: 1, ...styles.text }}>Hi {userDetails.name}</Text>
         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
           <Text style={styles.text}>SmartBin</Text>
@@ -45,76 +46,72 @@ function HomePage({ navigation }) {
             style={{ width: 26, height: 26 }}
           />
         </View>
-      </SafeAreaView>
+      </SafeAreaView> */}
 
-      <View style={styles.cardContainer}>
+      {/* <View style={styles.cardContainer}> */}
         {/* First Card */}
-        <View style={{ ...styles.card, width: 230, height: 129 }}>
+        {/* <View style={{ ...styles.card, width: 230, height: 129 }}>
           <Text style={styles.cardText}>Good job for{"\n"}taking out the{'\n'}trash for {userDetails.days} days</Text>
           <Image style={{ width: 75, height: 75 }} source={require('../assets/circle1.png')} />
-        </View>
+        </View> */}
 
         {/* Second Card */}
-        <TouchableOpacity onPress={() => navigation.navigate('Quantity')}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('Quantity')}>
           <View style={{ ...styles.card, width: 157, height: 129 }}>
             <Image style={{ width: 53, height: 53 }} source={require('../assets/trash1.png')} />
             <Text style={styles.cardText}>Quantity{'\n'}Disposed</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {/* Third card */}
-        <TouchableOpacity onPress={() => navigation.navigate('Qrcode')}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('Qrcode')}>
           <View style={{ ...styles.card, width: 157, height: 129, flexDirection: 'column' }}>
             <Image style={{ width: 53, height: 53 }} source={require('../assets/qr-code-icon.png')} />
             <Text style={{ fontSize: 24 }}>Qr Code</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {/* Fourth card */}
-        <TouchableOpacity onPress={() => navigation.navigate('RedeemStore')}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('RedeemStore')}>
           <View style={{ ...styles.card, width: 230, height: 129 }}>
             <Image style={{ width: 75, height: 75 }} source={require('../assets/package-delivery-icon.png')} />
             <Text style={{ fontSize: 24 }}>Redeem{"\n"}Store</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {/* Fifth card */}
-        <TouchableOpacity onPress={() => navigation.navigate("LogHistory")}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate("LogHistory")}>
           <View style={{ ...styles.card, width: 230, height: 129 }}>
             <Image style={{ width: 75, height: 75 }} source={require('../assets/clock-history.png')} />
             <Text style={{ fontSize: 24 }}>Log{"\n"}History</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         {/* Sixth card */}
-        <View style={{ ...styles.card, width: 157, height: 129, flexDirection: 'column' }}>
+        {/* <View style={{ ...styles.card, width: 157, height: 129, flexDirection: 'column' }}>
           <Image style={{ width: 53, height: 53 }} source={require('../assets/coin.png')} />
           <Text>current coins</Text>
           <View>
             <Text style={{ fontSize: 24 }}>{userDetails.points}</Text>
           </View>
         </View>
-      </View>
+      </View> */}
 
       {/* User Details */}
-      {showUser && (
+      {/* {showUser && (
         <View style={styles.userDetailsContainer}>
           <UserDetails setShowUser={setShowUser} />
         </View>
-      )}
+      )} */}
 
-      {/* <SafeAreaView style={styles.navBar}>
-        <TouchableOpacity onPress={() => setShowUser(old => !old)}>
-          <Image style={{ width: 41, height: 41 }} source={require('../assets/person-fill.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={()=>navigation.navigate('Cart')}>
-          <Image  style={{ width: 41, height: 41 }} source={require('../assets/bag-heart.png')} />
-
-        </TouchableOpacity>
-        <Image style={{ width: 41, height: 41 }} source={require('../assets/customer-service-icon.png')} />
-        <Image style={{ width: 41, height: 41 }} source={require('../assets/chat-dots.png')} />
-      </SafeAreaView> */}
-
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Home</Text>
+      </View>
+      <View style={styles.mainContainer}>
+        <View>
+          <Text>Hello {userDetails.name}</Text>
+        </View>
+      </View>
     </View>
   );
 }
@@ -123,7 +120,22 @@ const styles = StyleSheet.create({
   container: {
     width: WIDTH,
     height: HEIGHT,
-    backgroundColor: '#96C291',
+    backgroundColor: '#EDF2F3',
+  },
+  header: {
+    height: '15%',
+    width: WIDTH,
+    justifyContent: 'center',
+  },
+  headerText: {
+    fontSize: 30,
+    marginLeft: 20,
+    fontWeight: 'bold',
+    color: '#4D8C1C',
+  },
+  mainContainer: {
+    height: '85%',
+    width: WIDTH,
   },
   headBar: {
     padding: 5,
@@ -153,15 +165,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexWrap: 'wrap',
     alignItems: 'flex-start',
-  },
-  navBar: {
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: 59,
-    padding: 5,
-    marginTop: 5,
   },
   cardText: {
     fontSize: 15,
