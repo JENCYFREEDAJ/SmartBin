@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, } from 'react-native';
+import { View, Image, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, ScrollView, } from 'react-native';
 import { auth } from '../config/firebase';
 import { db } from '../config/firebase';
 import { getDoc, doc } from 'firebase/firestore';
@@ -107,7 +107,7 @@ function HomePage({ navigation }) {
       <View style={styles.header}>
         <Text style={styles.headerText}>Home</Text>
       </View>
-      <View style={styles.mainContainer}>
+      <ScrollView style={styles.mainContainer}>
         <Text style={styles.welcomeNote}>Hello {userDetails.name}</Text>
         <Text style={{fontSize: 15, alignSelf: 'center', marginTop: 10, fontWeight: '600'}}>Today Disposed Waste Percentage</Text>
         <View style={styles.cardSection}>
@@ -168,7 +168,7 @@ function HomePage({ navigation }) {
             <Text style={{fontWeight: 'bold', fontSize: 18}}>Earned 400 Coins</Text>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -220,6 +220,7 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     borderRadius: 20,
     borderWidth: 1,
+    marginTop:10,
     alignSelf: 'center',
     justifyContent: 'center',
     flexDirection: 'row',

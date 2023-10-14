@@ -1,8 +1,12 @@
 import React from 'react'
-import {View,Text,Image,TouchableOpacity,ScrollView} from 'react-native'
+import {View,Text,Image,TouchableOpacity,ScrollView, StyleSheet, Dimensions} from 'react-native'
+
+const HEIGHT = Dimensions.get('window').height;
+const WIDTH = Dimensions.get('window').width;
+
 function Card(props){
     return(
-        <View style={{flex:1,flexDirection:'row',justifyContent:'flex-start'}}>
+        <View style={cardstyles.container}>
             <View style={{ width: 149, height: 154, backgroundColor: "#96C293", borderColor: 'white', borderWidth: 4,borderRadius:12,margin:5,justifyContent:'center',alignItems:'center' }}>
                 <Text>Product-{props.num}</Text>
             </View>
@@ -17,15 +21,33 @@ function Card(props){
         </View>
     )
 }
+
+const cardstyles = StyleSheet.create({
+    container: {
+        flex:1,
+        padding:20,
+        backgroundColor: '#96C293',
+       },
+       headerContainer: {
+         height: '15%',
+         width: WIDTH,
+         justifyContent: 'center',
+       },
+       headerText: {
+         fontSize: 30,
+         marginLeft: 20,
+         fontWeight: 'bold',
+         color: '#4D8C1C',
+       },
+})
+
 function RedeemStore(){
     return(
-        <View style={{flex:1,justifyContent:'flex-start',backgroundColor:"#96C291"}}>
-        <View style={{marginTop:32,flexDirection:'row'}}>
-            <Text style={{fontSize:32,color:'white'}}>Smart Bin</Text>
-            <Image style={{width:32,height:32}} source={require('../assets/TrashLogo.png')}/>
+        <View style={styles.container}>
+        <View style={styles.headerContainer}>
+            <Text style={styles.headerText}>Redeem Store</Text>
         </View>
-        <Text style={{flex:1/6,margin:6,color:'white',fontSize:24,alignItems:'flex-end'}}>Redeem Store</Text>
-        <Text style={{color:'white',fontSize:24,justifyContent:'flex-start'}}>2500</Text>
+        {/* <Text style={{color:'white',fontSize:24,justifyContent:'flex-start'}}>2500</Text> */}
         <ScrollView>
             <Card num={1} price={500}/>
             <Card num={2} price={400}/>
@@ -39,5 +61,24 @@ function RedeemStore(){
     </View>
     )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        width: WIDTH,
+        height: HEIGHT,
+        backgroundColor: '#EDF2F3',
+       },
+       headerContainer: {
+         height: "15%",
+         width: WIDTH,
+         justifyContent: 'center',
+       },
+       headerText: {
+         fontSize: 30,
+         marginLeft: 20,
+         fontWeight: 'bold',
+         color: '#4D8C1C',
+       },
+})
 
 export default RedeemStore

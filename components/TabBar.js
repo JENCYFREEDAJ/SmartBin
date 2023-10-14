@@ -34,12 +34,6 @@ const TabBar = () => {
                 tabBarIcon: ({ color }) => <HomeIcon fill={color} height={25} width={25} />,
             }}>
             </Tab.Screen>
-            <Tab.Screen name='Cart' component={Cart} options={{
-                headerStyle: { backgroundColor: '#f4f4f9' },
-                headerShown: false,
-                tabBarIcon: ({ color }) => <CartIcon fill={color} height={25} width={25} />,
-            }}>
-            </Tab.Screen>
             <Tab.Screen name='Qrcode' component={Qrcode} options={{
                 headerStyle: { backgroundColor: '#f4f4f9' },
                 headerShown: false,
@@ -50,6 +44,12 @@ const TabBar = () => {
                 headerStyle: { backgroundColor: '#f4f4f9' },
                 headerShown: false,
                 tabBarIcon: ({ color }) => <RedeemIcon fill={color} height={25} width={25} />,
+            }}>
+            </Tab.Screen>
+            <Tab.Screen name='Cart' component={Cart} options={{
+                headerStyle: { backgroundColor: '#f4f4f9' },
+                headerShown: false,
+                tabBarIcon: ({ color }) => <CartIcon fill={color} height={25} width={25} />,
             }}>
             </Tab.Screen>
         </Tab.Navigator>
