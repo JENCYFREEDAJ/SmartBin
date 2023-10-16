@@ -3,6 +3,7 @@ import Cart from "./Cart";
 import HomePage from "./HomePage";
 import Qrcode from "./Qrcode";
 import RedeemStore from "./RedeemStore";
+import LogHistory from "./LogHistory";
 import HomeIcon from '../assets/home.svg';
 import CartIcon from '../assets/bagheart.svg';
 import QRIcon from '../assets/qr-code.svg';

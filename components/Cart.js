@@ -8,7 +8,7 @@ function Cart({navigation}) {
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>Redeem Cart</Text>
+        <Text style={styles.headerText}>Cart</Text>
       </View>
       <View style={{flex:1/2,flexDirection:"column",alignItems:"center",justifyContent:"center",}}>
        <View style={[styles.cart,{flex:1,alignItems:"center",justifyContent:"center"}]}>

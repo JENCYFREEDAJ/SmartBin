@@ -107,68 +107,89 @@ function HomePage({ navigation }) {
       <View style={styles.header}>
         <Text style={styles.headerText}>Home</Text>
       </View>
-      <ScrollView style={styles.mainContainer}>
+      <View style={styles.mainContainer}>
         <Text style={styles.welcomeNote}>Hello {userDetails.name}</Text>
-        <Text style={{fontSize: 15, alignSelf: 'center', marginTop: 10, fontWeight: '600'}}>Today Disposed Waste Percentage</Text>
-        <View style={styles.cardSection}>
-          <View style={styles.card}>
-            <CircularProgress 
-              radius={50}
-              value={60}
-              textColor= 'black'
-              fontSize={12}
-              valueSuffix={'%'}
-              inActiveStrokeColor={'#4D8C1C'}
-              inActiveStrokeOpacity={0.2}
-            />
-            <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Organic</Text>
+        <ScrollView>
+          <View style={styles.balanceCard}>
+            <View style={{width: '70%', justifyContent: 'center', alignItems: 'center'}}>
+              <Text style={{fontWeight: '500', fontSize: 15}}>Commendable Effort in consistantly handling trash disposal</Text>
+            </View>
+            <View style={{width: '30%', justifyContent: 'center', alignItems: 'center'}}>
+              <CircularProgress 
+                radius={30}
+                value={55}
+                title={'Days'}
+                titleColor={'black'}
+                duration={2000}
+                activeStrokeColor={'#7825B7'}
+                progressValueColor={'#7825B7'}
+                titleStyle={{fontWeight: 'bold', fontSize: 10,}}
+                inActiveStrokeColor={'#7825B7'}
+                inActiveStrokeOpacity={0.2}
+              />
+            </View>
           </View>
-          <View style={styles.card}>
-            <CircularProgress 
-              radius={50}
-              value={30}
-              textColor= 'black'
-              fontSize={12}
-              valueSuffix={'%'}
-              inActiveStrokeColor={'#4D8C1C'}
-              inActiveStrokeOpacity={0.2}
-            />
-            <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Plastic</Text>
+          <Text style={{fontSize: 15, alignSelf: 'center', marginTop: 10, fontWeight: '600'}}>Today Disposed Waste Percentage</Text>
+          <View style={styles.cardSection}>
+            <View style={styles.card}>
+              <CircularProgress 
+                radius={50}
+                value={60}
+                textColor= 'black'
+                fontSize={12}
+                valueSuffix={'%'}
+                inActiveStrokeColor={'#4D8C1C'}
+                inActiveStrokeOpacity={0.2}
+              />
+              <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Organic</Text>
+            </View>
+            <View style={styles.card}>
+              <CircularProgress 
+                radius={50}
+                value={30}
+                textColor= 'black'
+                fontSize={12}
+                valueSuffix={'%'}
+                inActiveStrokeColor={'#4D8C1C'}
+                inActiveStrokeOpacity={0.2}
+              />
+              <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Plastic</Text>
+            </View>
+            <View style={styles.card}>
+              <CircularProgress 
+                radius={50}
+                value={15}
+                textColor= 'black'
+                fontSize={12}
+                valueSuffix={'%'}
+                inActiveStrokeColor={'#4D8C1C'}
+                inActiveStrokeOpacity={0.2}
+              />
+              <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Glass</Text>
+            </View>
+            <View style={styles.card}>
+              <CircularProgress 
+                radius={50}
+                value={5}
+                textColor= 'black'
+                fontSize={12}
+                valueSuffix={'%'}
+                inActiveStrokeColor={'#4D8C1C'}
+                inActiveStrokeOpacity={0.2}
+              />
+              <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Other</Text>
+            </View>
           </View>
-          <View style={styles.card}>
-            <CircularProgress 
-              radius={50}
-              value={15}
-              textColor= 'black'
-              fontSize={12}
-              valueSuffix={'%'}
-              inActiveStrokeColor={'#4D8C1C'}
-              inActiveStrokeOpacity={0.2}
-            />
-            <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Glass</Text>
+          <View style={{...styles.balanceCard, marginBottom: 60}}>
+            <View style={{width: '30%', justifyContent: 'center', alignItems: 'center'}}>
+              <Image source={require('../assets/dollar.png')} style={{width: 50, height: 50}}/>
+            </View>
+            <View style={{width: '70%', justifyContent: 'center'}}>
+              <Text style={{fontWeight: 'bold', fontSize: 18}}>Earned 650 Coins</Text>
+            </View>
           </View>
-          <View style={styles.card}>
-            <CircularProgress 
-              radius={50}
-              value={5}
-              textColor= 'black'
-              fontSize={12}
-              valueSuffix={'%'}
-              inActiveStrokeColor={'#4D8C1C'}
-              inActiveStrokeOpacity={0.2}
-            />
-            <Text style={{fontSize: 20, marginTop: 5, fontWeight: '600'}}>Other</Text>
-          </View>
-        </View>
-        <View style={styles.balanceCard}>
-          <View style={{width: '30%', justifyContent: 'center', alignItems: 'center'}}>
-            <Image source={require('../assets/dollar.png')} style={{width: 50, height: 50}}/>
-          </View>
-          <View style={{width: '70%', justifyContent: 'center'}}>
-            <Text style={{fontWeight: 'bold', fontSize: 18}}>Earned 400 Coins</Text>
-          </View>
-        </View>
-      </ScrollView>
+          </ScrollView>
+      </View>
     </View>
   );
 }
