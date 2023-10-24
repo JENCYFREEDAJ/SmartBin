@@ -8,6 +8,9 @@ import HomeIcon from '../assets/home.svg';
 import CartIcon from '../assets/bagheart.svg';
 import QRIcon from '../assets/qr-code.svg';
 import RedeemIcon from '../assets/redeem.svg';
+import User from "../assets/user.svg"
+import ProfilePage from "./Profile";
+
 
 const Tab = createBottomTabNavigator();
 
@@ -41,18 +44,19 @@ const TabBar = () => {
                 tabBarIcon: ({ color }) => <QRIcon fill={color} height={25} width={25} />,
             }}>
             </Tab.Screen>
-            <Tab.Screen name='RedeemStore' component={RedeemStore} options={{
-                headerStyle: { backgroundColor: '#f4f4f9' },
-                headerShown: false,
-                tabBarIcon: ({ color }) => <RedeemIcon fill={color} height={25} width={25} />,
-            }}>
-            </Tab.Screen>
             <Tab.Screen name='Cart' component={Cart} options={{
                 headerStyle: { backgroundColor: '#f4f4f9' },
                 headerShown: false,
                 tabBarIcon: ({ color }) => <CartIcon fill={color} height={25} width={25} />,
             }}>
             </Tab.Screen>
+            <Tab.Screen name='Profile' component={ProfilePage} options={{
+                headerStyle: { backgroundColor: '#f4f4f9' },
+                headerShown: false,
+                tabBarIcon: ({ color }) => <User fill={color} height={25} width={25} />,
+            }}>
+            </Tab.Screen>
+            
         </Tab.Navigator>
     )
 }
