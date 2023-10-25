@@ -6,12 +6,6 @@ const WIDTH = Dimensions.get('window').width;
 
 function Qrcode() {
   return (
-    // <View style={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:"#96C291"}}>
-    //     <Text style={{fontSize:32,color:'white'}}>Qr code</Text>
-    //     <View style={{justifyContent:"center",alignItems:"center",borderRadius:12,backgroundColor:'white',width:400,height:400}}>
-    //         <Image style={{width:300,height:300}}source={require('../assets/Qrcode.jpg')}/>
-    //     </View>
-    // </View>
     <View style={styles.container}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Scan QR Code</Text>
@@ -20,9 +14,6 @@ function Qrcode() {
         <View style={styles.yourQR}>
           <Image style={{ width: 300, height: 300 }} source={require('../assets/Qrcode.jpg')} />
         </View>
-        <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnTxt}>Scan QR</Text>
-        </TouchableOpacity>
       </View>
     </View>
   )
@@ -31,7 +22,7 @@ function Qrcode() {
 const styles = StyleSheet.create({
   container: {
     width: WIDTH,
-    height: HEIGHT,
+    height: "100%",
     backgroundColor: '#EDF2F3',
   },
   headerContainer: {
@@ -48,10 +39,9 @@ const styles = StyleSheet.create({
   mainContainer: {
     height: "85%",
     alignItems: 'center',
-    justifyContent: 'center',
   },
   yourQR:{
-    height:"75%",
+    height:"55%",
     width:"100%",
     alignItems: 'center',
     justifyContent: 'center',

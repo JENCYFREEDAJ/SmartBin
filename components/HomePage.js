@@ -37,73 +37,6 @@ function HomePage({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* <SafeAreaView style={styles.headBar}>
-        <Text style={{ flex: 1, ...styles.text }}>Hi {userDetails.name}</Text>
-        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
-          <Text style={styles.text}>SmartBin</Text>
-          <Image
-            source={require('../assets/TrashLogo.png')}
-            style={{ width: 26, height: 26 }}
-          />
-        </View>
-      </SafeAreaView> */}
-
-      {/* <View style={styles.cardContainer}> */}
-        {/* First Card */}
-        {/* <View style={{ ...styles.card, width: 230, height: 129 }}>
-          <Text style={styles.cardText}>Good job for{"\n"}taking out the{'\n'}trash for {userDetails.days} days</Text>
-          <Image style={{ width: 75, height: 75 }} source={require('../assets/circle1.png')} />
-        </View> */}
-
-        {/* Second Card */}
-        {/* <TouchableOpacity onPress={() => navigation.navigate('Quantity')}>
-          <View style={{ ...styles.card, width: 157, height: 129 }}>
-            <Image style={{ width: 53, height: 53 }} source={require('../assets/trash1.png')} />
-            <Text style={styles.cardText}>Quantity{'\n'}Disposed</Text>
-          </View>
-        </TouchableOpacity> */}
-
-        {/* Third card */}
-        {/* <TouchableOpacity onPress={() => navigation.navigate('Qrcode')}>
-          <View style={{ ...styles.card, width: 157, height: 129, flexDirection: 'column' }}>
-            <Image style={{ width: 53, height: 53 }} source={require('../assets/qr-code-icon.png')} />
-            <Text style={{ fontSize: 24 }}>Qr Code</Text>
-          </View>
-        </TouchableOpacity> */}
-
-        {/* Fourth card */}
-        {/* <TouchableOpacity onPress={() => navigation.navigate('RedeemStore')}>
-          <View style={{ ...styles.card, width: 230, height: 129 }}>
-            <Image style={{ width: 75, height: 75 }} source={require('../assets/package-delivery-icon.png')} />
-            <Text style={{ fontSize: 24 }}>Redeem{"\n"}Store</Text>
-          </View>
-        </TouchableOpacity> */}
-
-        {/* Fifth card */}
-        {/* <TouchableOpacity onPress={() => navigation.navigate("LogHistory")}>
-          <View style={{ ...styles.card, width: 230, height: 129 }}>
-            <Image style={{ width: 75, height: 75 }} source={require('../assets/clock-history.png')} />
-            <Text style={{ fontSize: 24 }}>Log{"\n"}History</Text>
-          </View>
-        </TouchableOpacity> */}
-
-        {/* Sixth card */}
-        {/* <View style={{ ...styles.card, width: 157, height: 129, flexDirection: 'column' }}>
-          <Image style={{ width: 53, height: 53 }} source={require('../assets/coin.png')} />
-          <Text>current coins</Text>
-          <View>
-            <Text style={{ fontSize: 24 }}>{userDetails.points}</Text>
-          </View>
-        </View>
-      </View> */}
-
-      {/* User Details */}
-      {/* {showUser && (
-        <View style={styles.userDetailsContainer}>
-          <UserDetails setShowUser={setShowUser} />
-        </View>
-      )} */}
-
       <View style={styles.header}>
         <Text style={styles.headerText}>Home</Text>
       </View>
@@ -111,7 +44,7 @@ function HomePage({ navigation }) {
         <Text style={styles.welcomeNote}>Hello {userDetails.name}</Text>
         <ScrollView>
           <View style={styles.balanceCard}>
-            <View style={{width: '70%', justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{width: '70%', justifyContent: 'center', alignItems: 'center', padding: 5}}>
               <Text style={{fontWeight: '500', fontSize: 15}}>Commendable Effort in consistantly handling trash disposal</Text>
             </View>
             <View style={{width: '30%', justifyContent: 'center', alignItems: 'center'}}>

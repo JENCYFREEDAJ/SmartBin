@@ -69,7 +69,7 @@ function LoginPage({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     width: WIDTH,
-    height: HEIGHT,
+    height: "100%",
     backgroundColor: '#96C291',
   },
   title: {

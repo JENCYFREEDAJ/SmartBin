@@ -28,7 +28,7 @@ const ProfilePage = ({ navigation }) => {
             <View style={styles.bodycontainer}>
                 <View style={styles.profileImgContainer}>
                     <View style={styles.profileImgMain}>
-                        <Image source={require("../assets/recyclebin.png")} style={styles.profileImg} />
+                        <Image source={require("../assets/UserDefault.png")} style={styles.profileImg} />
                     </View>
                 </View>
                 <View style={styles.profileContent}>
@@ -95,13 +95,11 @@ const styles = StyleSheet.create({
         height: '85%',
     },
     profileImgContainer: {
-        flex: 1,
         justifyContent: "center",
         alignItems: "center",
     },
     profileContent: {
-        flex: 2,
-        justifyContent: "center",
+        marginTop: 25,
         alignItems: "center",
     },
     mainContainer: {
@@ -123,13 +121,13 @@ const styles = StyleSheet.create({
         elevation: 4
     },
     profileImg: {
-        height: 200,
-        width: 200,
+        height: 150,
+        width: 150,
         borderRadius: 100,
     },
     profileImgMain: {
-        height: 200,
-        width: 200,
+        height: 150,
+        width: 150,
         borderWidth: 0,
         backgroundColor: "#EDF2F3",
         borderColor: "transparent",
